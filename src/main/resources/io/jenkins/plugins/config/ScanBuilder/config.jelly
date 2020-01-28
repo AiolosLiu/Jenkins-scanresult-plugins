@@ -4,7 +4,7 @@
         <f:textbox />
     </f:entry>
     <f:advanced>
-        <f:entry title="${%Path}" field="./"
+        <f:entry title="${%Path}" field=""
                  description="${%PathDescr}">
             <f:checkbox />
         </f:entry>

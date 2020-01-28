@@ -15,16 +15,7 @@ public class ScanResult implements Action {
         this.workspace = workspace;
     }
     public String getScanResult() {
-        GenerateGraph gg = new GenerateGraph();
-        String path = workspace.getRemote() + "/data";
-        String result = gg.transformat(path);
-        try {
-            gg.generate(path); 
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-        
-        return result;
+        return workspace.getRemote() + "/format/format_result.json";
     }
 
     public String getHistoryImage() {

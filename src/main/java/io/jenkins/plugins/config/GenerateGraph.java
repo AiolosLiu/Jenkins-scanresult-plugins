@@ -26,9 +26,10 @@ import org.json.simple.parser.JSONParser;
 
 
 public class GenerateGraph {
-    public String transformat(String root) {
+    public void transformat(String root, String resultFile) {
 
-        String dir = root + "/scan/testdata.json";
+        String dir = root + "/scan/" + resultFile;
+        String formateDir = root + "/format/format_result.json";
         String path = root + "/history";
         Object obj;
         JSONObject scanResult = new JSONObject();
@@ -81,10 +82,17 @@ public class GenerateGraph {
             pw.close();
 
             scanResult.put("Categoris", categories);
+            String titleScan = formateDir;
+
+            PrintWriter pwsec = new PrintWriter(titleScan);
+            pwsec.write(scanResult.toJSONString());
+
+            pwsec.flush();
+            pwsec.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return scanResult.toJSONString();
     }
     //static String HISTORY_DATA_PATH = "./data/history";
     public DefaultCategoryDataset createDataset(String path) {
